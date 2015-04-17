@@ -1,13 +1,29 @@
 bosh-init deploy redis
 ======================
 
+First, fetch the required assets, including the `bosh-init` CLI:
+
 ```
 ./bin/fetch_assets.sh
 ```
 
+Then create the `redis.yml` manifest:
+
 ```
-bosh-init deploy redis.yml assets/light-bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz assets/bosh-aws-cpi-release-5.tgz assets/redis-9.tgz
+EIP=23.23.23.23 \
+ACCESS_KEY_ID=xxx SECRET_ACCESS_KEY=xxx \
+KEY_NAME=xxx PRIVATE_KEY_PATH=xxx \
+SECURITY_GROUP=xxx \
+./bin/make_manifest.sh
 ```
+
+Finally, run the `bosh-init deploy` command (via helpful wrapper):
+
+```
+./bin/deploy.sh
+```
+
+The output will look similar to:
 
 ```
 Deployment manifest: '/Users/drnic/Projects/bosh-deployments/experiments/redis-micro/redis-from-scratch.yml'
