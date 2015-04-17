@@ -56,3 +56,15 @@ Started deploying
   Waiting for instance 'redis/0' to be running... Finished (00:00:00)
 Finished deploying (00:05:58)
 ```
+
+Security Group
+--------------
+
+The security group must open the following ports to the machine running `./bin/deploy.sh` or `bosh-init deploy`:
+
+-	22
+-	6868
+
+The security group must open the following port for any clients to the Redis server:
+
+-	6379
