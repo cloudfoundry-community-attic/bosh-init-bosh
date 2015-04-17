@@ -99,6 +99,45 @@ bosh target 23.23.23.23 bosh-init-bosh
 
 The default user/pass is `admin` / `admin`.
 
+Destroy BOSH
+------------
+
+To delete your BOSH server:
+
+```
+./bin/delete.sh
+```
+
+The output will look like:
+
+```
+Deployment manifest: '/Users/drnic/Projects/bosh-deployments/experiments/bosh-init-bosh/bosh.yml'
+Deployment state: 'deployment.json'
+
+Started validating
+  Validating releases... Finished (00:00:00)
+  Validating deployment manifest... Finished (00:00:00)
+  Validating cpi release... Finished (00:00:00)
+Finished validating (00:00:00)
+
+Started installing CPI
+  Compiling package 'ruby_aws_cpi/052a28b8976e6d9ad14d3eaec6d3dd237973d800'... Finished (00:00:00)
+  Compiling package 'bosh_aws_cpi/deabbf731a4fedc9285324d85af6456cfa74c10c'... Finished (00:00:00)
+  Rendering job templates... Finished (00:00:00)
+  Installing packages... Finished (00:00:04)
+  Installing job 'cpi'... Finished (00:00:00)
+Finished installing CPI (00:00:04)
+
+Starting registry... Finished (00:00:00)
+
+Started deleting deployment
+  Waiting for the agent on VM 'i-8e838359'... Finished (00:00:00)
+  Stopping jobs on instance 'unknown/0'... Finished (00:00:00)
+  Deleting VM 'i-8e838359'... Finished (00:00:43)
+  Deleting stemcell 'ami-94c187fc light'... Finished (00:00:09)
+Finished deleting deployment (00:01:04)
+```
+
 Security Group
 --------------
 
