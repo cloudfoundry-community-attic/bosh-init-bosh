@@ -1,9 +1,13 @@
-bosh-init deploy redis
-======================
+bosh-init deploy bosh
+=====================
 
 The new [bosh-init](https://github.com/cloudfoundry/bosh-init) CLI can do more than just deploy Micro BOSH.
 
-This project will deploy a single server/VM/instance on AWS EC2 us-east-1 region running Redis server. It is using the new `bosh-init` CLI and the BOSH community [redis-boshrelease](https://github.com/cloudfoundry-community/redis-boshrelease) release.
+But in this project that's exactly what we'll do - deploy a Micro BOSH using the new `bosh-init` CLI.
+
+This project will deploy a single server/VM/instance on AWS EC2 us-east-1 region running BOSH.
+
+It's a fully featured BOSH. Fit for all your BOSH needs.
 
 Usage
 -----
@@ -14,7 +18,7 @@ First, fetch the required assets, including the `bosh-init` CLI:
 ./bin/fetch_assets.sh
 ```
 
-Then create the `redis.yml` manifest:
+Then create the `bosh.yml` manifest:
 
 ```
 EIP=23.23.23.23 \
@@ -33,7 +37,7 @@ Finally, run the `bosh-init deploy` command (via helpful wrapper):
 The output will look similar to:
 
 ```
-Deployment manifest: '/Users/drnic/Projects/bosh-deployments/experiments/redis-micro/redis-from-scratch.yml'
+Deployment manifest: '/Users/drnic/Projects/bosh-deployments/experiments/bosh-init-bosh/bosh.yml'
 Deployment state: 'deployment.json'
 
 Started validating
@@ -72,9 +76,9 @@ The security group must open the following ports to the machine running `./bin/d
 -	22
 -	6868
 
-The security group must open the following port for any clients to the Redis server:
+The security group must open the following port for the `bosh` CLI client:
 
--	6379
+-	25555
 
 Dependencies
 ------------
