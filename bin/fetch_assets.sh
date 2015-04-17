@@ -21,11 +21,15 @@ if [[ ! -f assets/light-bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz ]]
   curl -Lo assets/light-bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz \
     https://d26ekeud912fhb.cloudfront.net/bosh-stemcell/aws/bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz
 fi
-if [[ "$(which bosh-init)X" == "X" ]]; then
+if [[ "$(which bosh-initx)X" == "X" ]]; then
   if [[ ! -f $DIR/../bin/bosh-init ]]; then
     echo "Downloading bosh-init"
-    # TODO - linux vs darwin!
-    curl -o bin/bosh-init https://s3.amazonaws.com/concourse-tutorial-bosh-init/bosh-init
+    os_name=$(uname -s)
+    if [ "$os_name" == "Linux" ]; then
+      curl -Lo bin/bosh-init https://s3.amazonaws.com/concourse-tutorial-bosh-init/bosh-init-linux64
+    else
+      curl -Lo bin/bosh-init https://s3.amazonaws.com/concourse-tutorial-bosh-init/bosh-init-darwin
+    fi
     chmod +x bin/bosh-init
   fi
 fi
