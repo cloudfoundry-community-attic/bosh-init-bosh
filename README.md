@@ -1,6 +1,8 @@
 bosh-init deploy redis
 ======================
 
+The new [bosh-init](https://github.com/cloudfoundry/bosh-init) CLI can do more than just deploy Micro BOSH.
+
 This project will deploy a single server/VM/instance on AWS EC2 us-east-1 region running Redis server. It is using the new `bosh-init` CLI and the BOSH community [redis-boshrelease](https://github.com/cloudfoundry-community/redis-boshrelease) release.
 
 Usage
