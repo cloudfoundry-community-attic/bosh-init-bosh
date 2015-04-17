@@ -75,3 +75,16 @@ The security group must open the following ports to the machine running `./bin/d
 The security group must open the following port for any clients to the Redis server:
 
 -	6379
+
+Dependencies
+------------
+
+On Ubuntu, the following packages are required in order for the `bosh-aws-cpi` to compile Ruby successfully:
+
+```
+sudo apt-get install -y build-essential zlibc zlib1g-dev \
+  openssl libxslt-dev libxml2-dev libssl-dev \
+  libreadline6 libreadline6-dev libyaml-dev libsqlite3-dev sqlite3
+```
+
+I don't know what the matching requirements are for OS X anymore. That would require buying a new Mac. Wait... let me ask my wife.
