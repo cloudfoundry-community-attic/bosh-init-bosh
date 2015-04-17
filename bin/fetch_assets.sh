@@ -17,7 +17,7 @@ if [[ ! -f assets/bosh-${bosh_version}.tgz ]]; then
 fi
 if [[ ! -f assets/bosh-aws-cpi-release-${aws_cpi_version}.tgz ]]; then
   echo "Downloading bosh-aws-cpi-release-${aws_cpi_version}.tgz"
-  curl -Lo releases/bosh-aws-cpi-release-${aws_cpi_version}.tgz \
+  curl -Lo assets/bosh-aws-cpi-release-${aws_cpi_version}.tgz \
     "http://bosh.io/d/github.com/cloudfoundry-incubator/bosh-aws-cpi-release?v=${aws_cpi_version}"
 fi
 if [[ ! -f assets/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz ]]; then
