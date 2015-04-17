@@ -3,5 +3,5 @@ bosh-init
 spiff
 tmp
 .DS_Store
-redis.yml
+*.yml
 deployment.json

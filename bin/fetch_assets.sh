@@ -1,27 +1,31 @@
 #!/bin/bash
 
+bosh_version=${bosh_version:-155}
+aws_cpi_version=${aws_cpi_version:-5}
+stemcell_version=${stemcell_version:-2830}
+
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 cd $DIR/..
 mkdir -p assets
 mkdir -p bin
 
-if [[ ! -f assets/bosh-aws-cpi-release-5.tgz ]]; then
-  echo "Downloading bosh-aws-cpi-release-5.tgz"
-  curl -Lo releases/bosh-aws-cpi-release-5.tgz \
-    "http://bosh.io/d/github.com/cloudfoundry-incubator/bosh-aws-cpi-release?v=5"
+if [[ ! -f assets/bosh-${bosh_version}.tgz ]]; then
+  echo "Downloading bosh-${bosh_version}.tgz"
+  curl -Lo assets/bosh-${bosh_version}.tgz \
+    "https://bosh.io/d/github.com/cloudfoundry/bosh?v=${bosh_version}"
 fi
-if [[ ! -f assets/redis-9.tgz ]]; then
-  echo "Downloading redis-9.tgz"
-  curl -Lo assets/redis-9.tgz \
-    "https://bosh.io/d/github.com/cloudfoundry-community/redis-boshrelease?v=9"
+if [[ ! -f assets/bosh-aws-cpi-release-${aws_cpi_version}.tgz ]]; then
+  echo "Downloading bosh-aws-cpi-release-${aws_cpi_version}.tgz"
+  curl -Lo releases/bosh-aws-cpi-release-${aws_cpi_version}.tgz \
+    "http://bosh.io/d/github.com/cloudfoundry-incubator/bosh-aws-cpi-release?v=${aws_cpi_version}"
 fi
-if [[ ! -f assets/light-bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz ]]; then
-  echo "Downloading light-bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz"
-  curl -Lo assets/light-bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz \
-    https://d26ekeud912fhb.cloudfront.net/bosh-stemcell/aws/bosh-stemcell-2830-aws-xen-ubuntu-trusty-go_agent.tgz
+if [[ ! -f assets/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz ]]; then
+  echo "Downloading light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz"
+  curl -Lo assets/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz \
+    https://d26ekeud912fhb.cloudfront.net/bosh-stemcell/aws/bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz
 fi
-if [[ "$(which bosh-initx)X" == "X" ]]; then
+if [[ "$(which bosh-init)X" == "X" ]]; then
   if [[ ! -f $DIR/../bin/bosh-init ]]; then
     echo "Downloading bosh-init"
     os_name=$(uname -s)
