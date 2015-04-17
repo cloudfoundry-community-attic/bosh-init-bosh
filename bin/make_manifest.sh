@@ -27,6 +27,7 @@ resource_pools:
 jobs:
 - name: bosh
   instances: 1
+  persistent_disk: 32768
   templates:
   - {release: bosh, name: powerdns}
   - {release: bosh, name: nats}
