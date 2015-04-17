@@ -14,15 +14,6 @@ if [[
   exit 1
 fi
 
-# cp redis.yml.tmpl redis.yml
-#
-# perl -pi -e "s/EIP/$EIP/g" redis.yml
-# perl -pi -e "s/ACCESS_KEY_ID/$ACCESS_KEY_ID/g" redis.yml
-# perl -pi -e "s/SECRET_ACCESS_KEY/$SECRET_ACCESS_KEY/g" redis.yml
-# perl -pi -e "s/KEY_NAME/$KEY_NAME/g" redis.yml
-# perl -pi -e "s/PRIVATE_KEY_PATH/$PRIVATE_KEY_PATH/g" redis.yml
-# perl -pi -e "s/SECURITY_GROUP/$SECURITY_GROUP/g" redis.yml
-
 cat >redis.yml <<EOF
 ---
 name: redis
@@ -47,7 +38,7 @@ jobs:
     redis:
       address: "127.0.0.1"
       password: "redis"
-      port: 25255
+      port: 6379
 
 networks:
 - name: default
