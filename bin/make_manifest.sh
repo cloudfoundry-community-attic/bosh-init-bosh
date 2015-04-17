@@ -50,7 +50,7 @@ jobs:
       database: bosh
 
     dns:
-      address: EIP
+      address: $EIP
       db:
         user: postgres
         password: postges
@@ -67,7 +67,7 @@ jobs:
         basic_auth: replication:zxKDUBeCfKYXk
         user: replication
         password: powerdns
-      recursor: EIP
+      recursor: $EIP
 
     nats:
       address: 127.0.0.1
