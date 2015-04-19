@@ -23,6 +23,7 @@ resource_pools:
   network: default
   cloud_properties:
     instance_type: m3.medium
+    availability_zone: us-east-1c
 
 jobs:
 - name: bosh
