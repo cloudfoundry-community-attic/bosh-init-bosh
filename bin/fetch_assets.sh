@@ -23,7 +23,7 @@ fi
 if [[ ! -f assets/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz ]]; then
   echo "Downloading light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz"
   curl -Lo assets/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz \
-    https://d26ekeud912fhb.cloudfront.net/bosh-stemcell/aws/bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz
+    https://d26ekeud912fhb.cloudfront.net/bosh-stemcell/aws/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz
 fi
 if [[ "$(which bosh-init)X" == "X" ]]; then
   if [[ ! -f $DIR/../bin/bosh-init ]]; then
