@@ -22,7 +22,7 @@ resource_pools:
 - name: default
   network: default
   cloud_properties:
-    instance_type: m3.medium
+    instance_type: m3.large
     availability_zone: us-east-1c
 
 jobs:
