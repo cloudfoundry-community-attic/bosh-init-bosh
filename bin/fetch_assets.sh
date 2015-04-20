@@ -25,7 +25,7 @@ if [[ ! -f assets/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-
   curl -Lo assets/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz \
     https://d26ekeud912fhb.cloudfront.net/bosh-stemcell/aws/light-bosh-stemcell-${stemcell_version}-aws-xen-ubuntu-trusty-go_agent.tgz
 fi
-if [[ "$(which bosh-init)X" == "X" ]]; then
+if [[ ! -f bin/bosh-init ]]; then
   if [[ ! -f $DIR/../bin/bosh-init ]]; then
     echo "Downloading bosh-init"
     os_name=$(uname -s)
